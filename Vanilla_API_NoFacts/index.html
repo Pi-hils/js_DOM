@@ -22,7 +22,7 @@
           <input type="number" class="form-control form-control-lg" id="numberInput" placeholder="Enter any number...">
           <div id="fact" class="card-body">
             <h4 class="card_title">
-              NNumber Fact
+              Number Fact
             </h4>
             <p id="factText" class="card-text"></p>
           </div>
@@ -31,6 +31,27 @@
     </div>
   </div>
 
+  <script>
+    let fact= document.querySelector('#fact');
+    let factText= document.querySelector('#factText');
+    let numberInput = document.querySelector('#numberInput');
 
+    numberInput.addEventListener('input', getFactAjax);
+
+    function getFactAjax(){
+      let number = numberInput.value;
+      let xhr = new XMLHttpRequest();
+      xhr.open('GET','http://numbersapi.com/'+number);
+
+      xhr.onload = function(){
+        if(this.status == 200 && number != ''){
+          fact.style.display = 'block';
+          factText.innerText = this.responseText;
+        }
+      }
+
+      xhr.send();
+    }
+  </script>
  </body>
 </html>
