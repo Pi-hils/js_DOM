@@ -38,8 +38,8 @@ function onSubmit(e) {
     // append the li to the user cler(from index.html) 
     usersInput.appendChild(li);
     // clearing the field
-    // nameInput.value = '';
-    // emailInput.value = '';
+    nameInput.value = '';
+    emailInput.value = '';
    }
 }
 
